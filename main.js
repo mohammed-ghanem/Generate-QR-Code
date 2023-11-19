@@ -48,11 +48,13 @@ const clearUI = ()=> {
 }
 
 const createSaveBtn = (saveUrl) => {
+  const srcImg = document.querySelector("#qrcode img");
   const link = document.createElement('a');
   link.id = 'save-link';
   link.classList = "saveQrCodeImg btn btn-sm btn-danger fw-bold";
   link.href = saveUrl;
-  link.download = 'qrcode';
+  // link.download = 'qrcode';
+  link.download = srcImg.getAttribute("src");
   link.innerHTML = 'Download QR Code';
   document.getElementById("Generated").appendChild(link); 
 } 
